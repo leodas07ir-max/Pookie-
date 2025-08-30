@@ -3,19 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Aiendri 💖</title>
+  <title>For You 🌸</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🌸 For My Pookie, My Everything 🌸</h1>
-    <p>Choose where you want to go 💕</p>
-    
-    <div class="menu">
-      <a href="memories.html" class="btn">💭 Random Memories</a>
-      <a href="games.html" class="btn">🎮 Mini Games</a>
-      <a href="notes.html" class="btn">💌 Love Notes</a>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+    <p class="loading-text">Preparing to make you smile 🙂...</p>
+  </div>
+
+  <!-- Intro Video -->
+  <div id="intro-video" class="hidden">
+    <video autoplay muted playsinline id="introVid">
+      <source src="intro.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <div class="overlay">
+      <h1>May this bring you a smile 💖</h1>
     </div>
   </div>
+
+  <!-- Main Homepage -->
+  <div id="home" class="hidden">
+    <h1>Hey Aiendri 🌸</h1>
+    <p>Here’s a little world I made just for you ✨</p>
+
+    <div class="nav">
+      <a href="memories.html">💭 Memories</a>
+      <a href="lovenotes.html">💌 Love Notes</a>
+      <a href="games.html">🎮 Mini Games</a>
+      <a href="guestbook.html">📖 Guestbook</a>
+      <a href="playlist.html">🎶 Playlist</a>
+    </div>
+
+    <div class="quotes">
+      <p>“Our first hug will forever stay warm in my heart.”</p>
+      <p>“That time we spent in the rain felt like a scene written just for us.”</p>
+      <p>“I don’t need a special day to celebrate you, you’re my special every day.”</p>
+      <p>“Even the smallest memory with you shines brighter than a thousand stars.”</p>
+    </div>
+  </div>
+
+  <script>
+    // Simulated Loading Effect
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loading-screen").style.display = "none";
+        document.getElementById("intro-video").classList.remove("hidden");
+
+        // After video ends, show homepage
+        const video = document.getElementById("introVid");
+        video.onended = () => {
+          document.getElementById("intro-video").style.display = "none";
+          document.getElementById("home").classList.remove("hidden");
+        };
+      }, 3000); // 3s loading
+    });
+  </script>
 </body>
 </html>
