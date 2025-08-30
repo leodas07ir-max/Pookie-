@@ -6,63 +6,101 @@
   <title>Love Notes 💌</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: "Georgia", serif;
-      background: linear-gradient(135deg, #fff8f0, #ffe6eb, #ffd1dc);
-      text-align: center;
-      padding: 2rem;
-      color: #333;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #d6336c;
-      margin-bottom: 1rem;
-    }
+    /* Extra styling just for the random note box */
     .note-box {
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 1rem auto;
-      width: 80%;
+      margin: 2rem auto;
+      padding: 1rem;
       max-width: 500px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      font-size: 1.3rem;
+      background: #ffe4ec;
+      border-radius: 12px;
+      font-size: 1.1rem;
       font-style: italic;
-      line-height: 1.6;
       display: none;
-      animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .note-box.active {
       display: block;
+      animation: fadeIn 0.6s ease-in-out;
     }
     button {
-      background: #ff4d6d;
-      color: white;
+      background: #ff7aa2;
       border: none;
-      padding: 12px 20px;
+      color: white;
+      padding: 0.7rem 1.4rem;
       font-size: 1rem;
-      border-radius: 30px;
+      border-radius: 8px;
       cursor: pointer;
-      margin-top: 1.5rem;
       transition: 0.3s;
-      box-shadow: 0 5px 12px rgba(255,77,109,0.3);
     }
     button:hover {
-      background: #e63950;
-      transform: scale(1.05);
+      background: #ff4e87;
     }
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>💌 Love Notes for You</h1>
-  <p>Click below and let a little piece of my heart open for you 🌸</p>
+  <header>
+    <h1>Love Notes 💌</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="notes.html">Love Notes</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="guestbook.html">Guestbook</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div id="note-display" class="note-box"></div>
-  <button onclick="showRandomNote()">Open a Love Note 🎀</button>
+  <main class="notes">
+    <article>
+      <h2>💖 Tum Ho..</h2>
+      <p>
+        Dharakte dil k lafz ho tum—<br>
+        Akhir tarasti nigaho ka intezar ho tum,<br>
+        Tumhare milne par wo sukoon ho tum—<br>
+        Aankho me basi wo khwab ho tum,<br>
+        Meri zindagi ka pehla aur Aakhiri pyaar ho tum🫀🐚
+      </p>
+    </article>
+
+    <article>
+      <h2>🌸 Uski Yaad</h2>
+      <p>
+        Akhir itni kyu khubsurat ho tum—<br>
+        Ki dekhte hi tujhe duniya tham jaaye,<br>
+        Aakhir wahi ladki hona tum—<br>
+        Jo aake har baar mera dil le jaye ❤️...<br><br>
+
+        Aakhir kitna bhi is generation me ghul jau—<br>
+        Phir v tumhe hot 🔥 nehi pretty , golu, cutu 🎀 hi bulau mai,<br>
+        Sach keh raha hu meri maa-<br>
+        Din raat bas tujhe hi chahu mai 🤭...<br><br>
+
+        Tujhe hi dekhta rahu ki—<br>
+        aankhe bas tujhe niharna chahe,<br>
+        Isiliye chahta hu ki -<br>
+        bas tu meri ban jaaye..sirf meri 🫀<br><br>
+
+        Din se raat hojaye —<br>
+        Khwaab se haqikat ho jaye,<br>
+        Pyar sirf lafzo me nehi-<br>
+        Akhir hume tumse ishq ho jaye💘....
+      </p>
+    </article>
+
+    <!-- Random Love Note Generator -->
+    <div id="note-display" class="note-box"></div>
+    <button onclick="showRandomNote()">Open a Love Note 🎀</button>
+  </main>
+
+  <footer>
+    <p>Forever Yours ❤️</p>
+  </footer>
 
   <script>
     const notes = [
