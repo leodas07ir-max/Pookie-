@@ -3,18 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Games 🎮</title>
+  <title>Mini Games</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>🎮 Mini Games for You</h1>
-    <ul>
-      <li><a href="#" onclick="playGuess()">🔮 Guess the Number</a></li>
-      <li><a href="#" onclick="playHearts()">❤️ Click the Hearts</a></li>
-    </ul>
-    <a href="index.html" class="back">⬅ Back</a>
+  <h1 class="page-title">🎮 Fun Zone</h1>
+  <div class="game-container">
+    <!-- Tic Tac Toe -->
+    <h2>Tic Tac Toe</h2>
+    <div id="tic-tac-toe">
+      <div class="board">
+        <div class="cell" onclick="makeMove(this,0)"></div>
+        <div class="cell" onclick="makeMove(this,1)"></div>
+        <div class="cell" onclick="makeMove(this,2)"></div>
+        <div class="cell" onclick="makeMove(this,3)"></div>
+        <div class="cell" onclick="makeMove(this,4)"></div>
+        <div class="cell" onclick="makeMove(this,5)"></div>
+        <div class="cell" onclick="makeMove(this,6)"></div>
+        <div class="cell" onclick="makeMove(this,7)"></div>
+        <div class="cell" onclick="makeMove(this,8)"></div>
+      </div>
+      <p id="game-status"></p>
+    </div>
+    <script>
+      let currentPlayer = "X";
+      let gameBoard = ["","","","","","","","",""];
+      function makeMove(cell, index) {
+        if (gameBoard[index] === "") {
+          gameBoard[index] = currentPlayer;
+          cell.textContent = currentPlayer;
+          if (checkWin()) {
+            document.getElementById("game-status").innerText = currentPlayer + " wins! 🎉";
+          } else if (gameBoard.every(c => c !== "")) {
+            document.getElementById("game-status").innerText = "It's a draw! 🤝";
+          } else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+          }
+        }
+      }
+      function checkWin() {
+        const winPatterns = [
+          [0,1,2],[3,4,5],[6,7,8],
+          [0,3,6],[1,4,7],[2,5,8],
+          [0,4,8],[2,4,6]
+        ];
+        return winPatterns.some(pattern =>
+          pattern.every(index => gameBoard[index] === currentPlayer)
+        );
+      }
+    </script>
   </div>
 </body>
 </html>
