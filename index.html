@@ -3,115 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memories</title>
+  <title>Special Space 🌸</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Intro Screen */
-    #intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      flex-direction: column;
-      transition: opacity 1s ease;
-    }
-    #intro video {
-      max-width: 80%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.7);
-    }
-    #loading-text {
-      color: white;
-      font-size: 1.5rem;
-      margin-top: 15px;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
-
-    /* Main content hidden initially */
-    #main-content {
-      display: none;
-      padding: 20px;
-      text-align: center;
-    }
-    .page-title {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-  </style>
 </head>
 <body>
   <!-- Intro Video Screen -->
-  <div id="intro">
-    <video id="intro-video" autoplay muted>
+  <div id="intro-screen">
+    <video id="intro-video" autoplay muted playsinline>
       <source src="intro.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      Your browser does not support video.
     </video>
-    <div id="loading-text">Preparing something special... 🎲</div>
+    <div id="loading-text">Preparing to make you smile 🙂...</div>
   </div>
 
-  <!-- Main Content -->
-  <div id="main-content">
-    <h1 class="page-title">📝 Our Memories</h1>
-    <div class="memory-list">
-      <button onclick="showRandomMemory()">🎲 Open a Random Memory</button>
-      <p id="memory-display"></p>
-    </div>
+  <!-- Sliding Panel Menu -->
+  <div id="menu-panel" class="panel">
+    <button class="close-btn" onclick="togglePanel()">✖</button>
+    <h2>✨ Menu ✨</h2>
+    <ul>
+      <li><a href="lovenotes.html">💌 Love Notes</a></li>
+      <li><a href="memories.html">📸 Memories</a></li>
+      <li><a href="games.html">🎮 Games</a></li>
+      <li><a href="softmusic.html">🎶 Soft Music</a></li>
+      <li><a href="guestbook.html">📝 Guestbook</a></li>
+    </ul>
   </div>
 
-  <script>
-    const intro = document.getElementById("intro");
-    const video = document.getElementById("intro-video");
-    const main = document.getElementById("main-content");
+  <!-- Main Home Content -->
+  <div id="main-content" class="hidden">
+    <header>
+      <button class="menu-btn" onclick="togglePanel()">☰</button>
+      <h1>Welcome to Your Special Space 🌸</h1>
+    </header>
+    <section class="quotes">
+      <h2>💖 Some Words for You 💖</h2>
+      <p>"You make my world brighter, every single day."</p>
+      <p>"In every smile of yours, I find my peace."</p>
+      <p>"You are not just part of my story—you are the best chapter."</p>
+    </section>
+  </div>
 
-    // Hide intro after video ends
-    video.onended = () => {
-      fadeOutIntro();
-    };
-
-    // Safety: Auto-hide intro after 8s even if video doesn’t end
-    setTimeout(() => {
-      if (intro.style.display !== "none") {
-        fadeOutIntro();
-      }
-    }, 8000);
-
-    function fadeOutIntro() {
-      intro.style.opacity = "0";
-      setTimeout(() => {
-        intro.style.display = "none";
-        main.style.display = "block";
-      }, 1000); // match transition
-    }
-
-    // Memories
-    const memories = [
-      "Our first hug ❤️",
-      "That rainy day walk 🌧️",
-      "Our endless talks under the sky 🌌",
-      "Laughing so hard until tears came 😂",
-      "That time we stayed up late sharing dreams ✨",
-      "The way we teased each other like best friends 🤭",
-      "That day in school when you suddenly looked back and smiled at me 💖",
-      "When I felt left out but you unknowingly made me feel seen again 🌷",
-      "Our secret little inside jokes no one else understood 🔑",
-      "The day I called you 'jigri' and it just felt right 🤝",
-      "That walk after class when the world felt lighter just with you 🌼",
-      "Our silly fights that always ended with laughter 😅",
-      "When I wrote your name and smiled without reason ✍️😊"
-    ];
-
-    function showRandomMemory() {
-      const random = memories[Math.floor(Math.random() * memories.length)];
-      document.getElementById("memory-display").innerText = random;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
