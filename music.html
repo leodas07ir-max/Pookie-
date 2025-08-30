@@ -3,17 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Playlist</title>
+  <title>Music – Tum Ho</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 class="page-title">🎶 Our Music Space</h1>
-  <p>Let’s build our happy playlist together 💕</p>
-  <iframe style="border-radius:12px" 
-    src="https://open.spotify.com/embed/playlist/5nd8FBTe8j14UyPp4oYjZp?utm_source=generator" 
-    width="100%" height="380" frameBorder="0" 
-    allowfullscreen="" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy"></iframe>
+  <header>
+    <h1>🎶 Our Music Corner 🎶</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="notes.html">Love Notes</a>
+      <a href="memories.html">Memories</a>
+      <a href="games.html">Games</a>
+      <a href="guestbook.html">Guestbook</a>
+      <a href="music.html" class="active">Music</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="music-section">
+      <h2>💛 Our Playlist 💛</h2>
+      <p>Here’s the playlist that feels like *us* 🫂✨</p>
+      
+      <!-- Spotify Embed -->
+      <div class="spotify-player">
+        <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" 
+          width="100%" height="380" frameborder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>💌 With love, always…</p>
+  </footer>
 </body>
 </html>
