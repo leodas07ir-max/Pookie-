@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook ✍️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💌 Leave a Note for Me</h1>
+    <p>Write something sweet, a memory, or just say hi!</p>
+
+    <form id="note-form">
+      <textarea id="note-text" rows="5" placeholder="Your sweet message here..." required></textarea>
+      <button type="submit" class="btn">💖 Send Note</button>
+    </form>
+
+    <h2>📝 Notes So Far</h2>
+    <div id="notes-display" class="notes-box"></div>
+
+    <br>
+    <a href="index.html" class="back">⬅ Back to Home</a>
+  </div>
+
+  <script>
+    document.getElementById('note-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const noteText = document.getElementById('note-text').value.trim();
+      if (!noteText) return;
+
+      const notesDisplay = document.getElementById('notes-display');
+      const newNote = document.createElement('div');
+      newNote.className = "note-card";
+      newNote.textContent = `"${noteText}" - My Pookie 💕`;
+      notesDisplay.appendChild(newNote);
+
+      alert('Your note has been received! Thank you, my love 🥰');
+      document.getElementById('note-text').value = '';
+    });
+  </script>
+</body>
+</html>
