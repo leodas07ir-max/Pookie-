@@ -5,14 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love Notes 💌</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background: linear-gradient(135deg, #fff8f0, #ffe6eb, #ffd1dc);
+      text-align: center;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #d6336c;
+      margin-bottom: 1rem;
+    }
+    .note-box {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 1rem auto;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.6;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .note-box.active {
+      display: block;
+    }
+    button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: 0.3s;
+      box-shadow: 0 5px 12px rgba(255,77,109,0.3);
+    }
+    button:hover {
+      background: #e63950;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>💌 My Notes to You</h1>
-    <p>“7 months completed and 5 months left to a year... so many memories with you, my pookie my bhookie my golgappa my everything...”</p>
-    <p>“I still remember when we laughed endlessly on silly jokes 😆 and when you pulled my mood up when I was down 💕”</p>
-    <p>“You’re my sunshine on my darkest days ☀️🌸”</p>
-    <a href="index.html" class="back">⬅ Back</a>
-  </div>
+  <h1>💌 Love Notes for You</h1>
+  <p>Click below and let a little piece of my heart open for you 🌸</p>
+
+  <div id="note-display" class="note-box"></div>
+  <button onclick="showRandomNote()">Open a Love Note 🎀</button>
+
+  <script>
+    const notes = [
+      "I love you more than words could ever fit on this page ❤️",
+      "Whenever I think of happiness, your smile is the first picture 🌸",
+      "Even in silence, I feel closest to you 💫",
+      "I miss you in every heartbeat and every pause of breath 🌹",
+      "You’re not just part of my life, you’re my favorite chapter 📖✨",
+      "If love could be measured, ours would overflow the universe 🌌",
+      "With you, even an ordinary day feels like a festival 🎉",
+      "My best friend, my comfort, my forever person—you 💕"
+    ];
+
+    function showRandomNote() {
+      const random = notes[Math.floor(Math.random() * notes.length)];
+      const box = document.getElementById("note-display");
+      box.innerText = random;
+      box.classList.add("active");
+    }
+  </script>
 </body>
 </html>
