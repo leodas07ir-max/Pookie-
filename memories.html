@@ -3,17 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memories 💭</title>
+  <title>Memories</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>💭 A Memory with You</h1>
-    <p id="memory">Click below to reveal a random memory 💕</p>
-    <button onclick="showMemory()">✨ Show Memory</button>
-    <br><br>
-    <a href="index.html" class="back">⬅ Back</a>
+  <h1 class="page-title">📝 Our Memories</h1>
+  <div class="memory-list">
+    <button onclick="showRandomMemory()">🎲 Open a Random Memory</button>
+    <p id="memory-display"></p>
   </div>
+  <script>
+    const memories = [
+      "Our first hug ❤️",
+      "That rainy day walk 🌧️",
+      "Our endless talks under the sky 🌌",
+      "Laughing so hard until tears came 😂",
+      "That time we stayed up late sharing dreams ✨",
+      "The way we teased each other like best friends 🤭",
+      "The day we sat together and I felt like time stopped ⏳",
+      "When we clicked selfies and kept laughing at them 🤳😂",
+      "That evening when you made me feel I wasn’t alone 🌙",
+      "The cycle rides where we kept racing each other 🚴‍♂️🚴‍♀️",
+      "The surprise you gave me with just your smile 💛",
+      "That day when I felt left out, but later realized your importance even more 🌧️💔",
+      "When we shared chips and laughed like little kids 🍟😄",
+      "The way you call me 'Motka' and it feels special every time 🐻",
+      "When you stood by me like a true jigri even when I was low 💪❤️",
+      "Those moments in class when we made random jokes 🤓😂",
+      "The secret talks only we understood 🔑🤐",
+      "That festival day when we clicked pics and laughed at silly poses 🎉📸",
+      "When you reminded me to stay strong even when I was about to break 🌟",
+      "The time we argued but came back stronger, proving what we mean to each other 🔥🤝"
+    ];
+    function showRandomMemory() {
+      const random = memories[Math.floor(Math.random()*memories.length)];
+      document.getElementById("memory-display").innerText = random;
+    }
+  </script>
 </body>
 </html>
