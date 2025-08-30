@@ -3,28 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guestbook</title>
+  <title>Guestbook 📝</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 class="page-title">📖 Guestbook</h1>
-  <form id="guestbook-form">
-    <input type="text" id="name" placeholder="Your name" required>
-    <textarea id="message" placeholder="Leave a sweet note..." required></textarea>
-    <button type="submit">Send</button>
-  </form>
-  <div id="messages"></div>
-  <script>
-    document.getElementById("guestbook-form").addEventListener("submit", function(e){
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const msg = document.getElementById("message").value;
-      const messagesDiv = document.getElementById("messages");
-      const newMsg = document.createElement("p");
-      newMsg.textContent = name + ": " + msg;
-      messagesDiv.appendChild(newMsg);
-      document.getElementById("guestbook-form").reset();
-    });
-  </script>
+  <header>
+    <h1>Guestbook 📝</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="notes.html">Love Notes</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="guestbook.html">Guestbook</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="guestbook">
+    <form>
+      <label>Your Name:</label><br>
+      <input type="text" name="name"><br><br>
+      <label>Message:</label><br>
+      <textarea name="message"></textarea><br><br>
+      <button type="submit">Send</button>
+    </form>
+  </main>
 </body>
 </html>
